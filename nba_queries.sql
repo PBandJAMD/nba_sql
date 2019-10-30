@@ -51,14 +51,18 @@ WHERE games > 40;
 -- (team points) ordered from most team points to least.
 SELECT team, SUM(points)
 FROM players
-GROUP BY team;
+GROUP BY team
+ORBER BY SUM
+(points) DESC ;
 
 
 -- The age and the average points per game for that age,
 --  ordered from oldest to youngest for all ages.
-SELECT age, AVG(points)
+SELECT age, AVG(points/games)
 FROM players
-GROUP BY age;
+GROUP BY age
+ORBER
+BY age ACS;
 
 
 -- The team and the the number of players who score above
@@ -67,5 +71,7 @@ GROUP BY age;
 
 SELECT players.team, COUNT(name)
 FROM players
-WHERE points > 12
-GROUP BY players.team;
+WHERE points/games > 12
+GROUP BY players.team
+ORBER BY COUNT
+(name);
